@@ -9,8 +9,8 @@
         <h2>Add your alarm time</h2>
           <form id="alarm">
             <label for="setTime">Set an alarm time </label>
-            <input id="alarmTimeHour" type="text" placeholder="hour">
-            <input id="alarmTimeMinute" type="text" placeholder="minute">
+            <input id="alarmTimeHour" type="number" min="1" max="12" placeholder="hour">
+            <input id="alarmTimeMinute" type="number" min="00" max="59" placeholder="minute">
             <button type="submit">Submit</button>
           </form>
         <h3>The Time is: </h3>

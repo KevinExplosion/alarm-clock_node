@@ -24,6 +24,9 @@ $(document).ready(function(){
             hour = NaN;
         } else {
             minute = minute + 1;
+              if (minute >= 60){
+                minute = minute - 60;
+              }
         }
       }
     }, 2000);
