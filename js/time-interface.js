@@ -7,7 +7,7 @@ var update = function () {
 };
 
 $(document).ready(function(){
-    datetime = $('#datetime')
+    datetime = $('#time')
     update();
     setInterval(update, 1000);
 });

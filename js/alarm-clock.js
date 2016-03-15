@@ -1,15 +1,14 @@
-exports.Alarm = function(setTime) {
-  this.setTime = setTime;
-  // this.currentTime = currentTime;
+exports.Alarm = function(hour, minute) {
+  this.hour = hour;
+  this.minute = minute;
 };
 
-exports.Alarm.prototype.entry = function() {
-  return "<h2>" + this.setTime + "</h2>";
+exports.Alarm.prototype.getTime = function() {
+  return moment().format("h:mm:ss");
 };
 
-exports.Alarm.prototype.checkAlarm = function(setTime) {
-  if (setTime === parseInt(moment())) {
+exports.Alarm.prototype.checkAlarm = function(hour, minute) {
+  if(hour === parseInt(moment().format("h")) && minute === parseInt(moment().format("mm"))) {
     return true;
   }
-
 };

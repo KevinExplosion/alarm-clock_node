@@ -1,15 +1,32 @@
 var Alarm = require('./../js/alarm-clock.js').Alarm;
 
 $(document).ready(function(){
+  var newAlarm = new Alarm();
+  setInterval(function() {
+    $('#time').text(newAlarm.getTime());
+  }, 1000);
+
+
   $('#alarm').submit(function(event){
     event.preventDefault();
-    var setTime = $('#setTime').val();
-    var newAlarm = new Alarm(setTime);
-    $('#alarmSetFor').append(newAlarm.entry() + "this is your alarm time");
+    var hour = parseInt($('#alarmTimeHour').val());
+    var minute = parseInt($('#alarmTimeMinute').val());
+    var myAlarm = new Alarm(hour, minute);
+    $('#alarmtime').append("<h4>Alarm: " + hour + ":" + minute + "</h4>");
+    setInterval(function() {
+      if (myAlarm.checkAlarm(hour, minute) == true) {
+        alert("RING RING RING");
 
-    if (newAlarm.checkAlarm(setTime) === true) {
-      $('#alarmring').append("ringringring");
-    }
-    newAlarm.checkAlarm(setTime);
+        var txt;
+        var snooze = confirm("Press OK to turn alarm off. Press CANCEL for snooze.");
+        if (snooze == true) {
+            minute = NaN;
+            hour = NaN;
+        } else {
+            minute = minute + 1;
+        }
+      }
+    }, 2000);
+    myAlarm.checkAlarm(hour, minute);
   });
 });
