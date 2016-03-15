@@ -11,8 +11,3 @@ $(document).ready(function(){
     update();
     setInterval(update, 1000);
 });
-
-
-//'dddd, MMMM Do YYYY, h:mm:ss a'
-
-//'h:mm:ss a'

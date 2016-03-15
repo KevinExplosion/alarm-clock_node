@@ -7,8 +7,9 @@ $(document).ready(function(){
     var newAlarm = new Alarm(setTime);
     $('#alarmSetFor').append(newAlarm.entry() + "this is your alarm time");
 
+    if (newAlarm.checkAlarm(setTime) === true) {
+      $('#alarmring').append("ringringring");
+    }
+    newAlarm.checkAlarm(setTime);
   });
 });
-
-
-//use stopTime & currentTime

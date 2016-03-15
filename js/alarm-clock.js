@@ -7,4 +7,9 @@ exports.Alarm.prototype.entry = function() {
   return "<h2>" + this.setTime + "</h2>";
 };
 
-// if var alarm == var update, alert("alarm")
+exports.Alarm.prototype.checkAlarm = function(setTime) {
+  if (setTime === parseInt(moment())) {
+    return true;
+  }
+
+};
